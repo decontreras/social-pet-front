@@ -1,0 +1,7 @@
+{
+  "name": "social-pet-front",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
