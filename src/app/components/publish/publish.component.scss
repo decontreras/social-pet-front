@@ -1,0 +1,256 @@
+.publish {
+  width: calc(100% - 40px);
+  margin: 10px auto;
+  border-top: 5px solid #CE33FF;
+  box-shadow: 3px 4px 5px rgb(209 209 209 / 50%);
+  background: #FFFFFF;
+
+  &__title {
+    height: auto;
+    display: flex;
+    padding: 10px;
+    border-bottom: 1px solid #e6ecf5;
+    align-items: center;
+  }
+
+  &__title_icon {
+    width: 15px;
+    height: 15px;
+    margin: 0 5px 0 0;
+  }
+
+  &__title_text {
+    font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    color: #515365;
+    letter-spacing: 1px;
+    font-size: .775rem;
+    font-weight: 700;
+  }
+
+  &__title_type {
+    height: auto;
+    background: #e6e6e6;
+    width: 150px;
+    margin: 0 0 0 auto;
+    border-radius: 10px;
+
+    select {
+      height: 100%;
+      width: 100%;
+      background: transparent;
+      border: none;
+      outline: none;
+      padding: 5px;
+      color: #000000;
+    }
+  }
+
+  &__content {
+    height: auto;
+    display: flex;
+  }
+
+  &__content_profile {
+    width: 40px;
+    height: 40px;
+    margin: 20px;
+    border-radius: 50%;
+    border: 1px solid black;
+
+    svg {
+      width: 100%;
+      height: 100%;
+      padding: 5px;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+    }
+  }
+
+  &__content_text {
+    min-height: 50px;
+    border: none;
+    outline: none;
+    width: calc(100% - 90px);
+    margin: 0 5px 0 0;
+    padding: 10px 0;
+  }
+
+  &__footer {
+    height: auto;
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid #e6ecf5;
+  }
+
+  &__footer_icon {
+    width: 16px;
+    height: 16px;
+    margin: 0 10px 0 0;
+  }
+
+  &__footer_button {
+    background: linear-gradient(-135deg, #CE33FF, #4158d0);
+    font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    text-align: center;
+    color: #FFFFFF;
+    padding: 5px 10px;
+    margin: 0 0 0 auto;
+    border-radius: 30px;
+  }
+
+  &__footer_button_disabled {
+    opacity: 0.5;
+  }
+
+  &__preview {
+    display: flex;
+    flex-flow: row wrap;
+    width: 100%;
+    height: 340px;
+    position: relative;
+  }
+
+  &__preview_container {
+    height: 100%;
+    width: 100%;
+  }
+
+  &__preview_multimedia {
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    position: relative;
+    justify-content: center;
+    background: black;
+    height: 100%;
+    width: 100%;
+
+    video {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+
+    img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__preview_multimedia_2 {
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    position: relative;
+    justify-content: center;
+    background: black;
+
+    video {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+
+    img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+
+    &__1 {
+      margin: 0 2px 0 0;
+      width: calc(50% - 2px);
+      height: 100%;
+    }
+
+    &__container {
+      height: 100%;
+      width: 50%;
+    }
+
+    &__2 {
+      margin: 0 0 4px 2px;
+      width: calc(100% - 2px);
+      height: 100%;
+    }
+  }
+
+  &__preview_multimedia_3 {
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    position: relative;
+    justify-content: center;
+    background: black;
+
+    video {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+
+    img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+
+    &__1 {
+      margin: 0 2px 0 0;
+      width: calc(50% - 2px);
+      height: 100%;
+    }
+
+    &__container {
+      height: 100%;
+      width: 50%;
+    }
+
+    &__2 {
+      margin: 0 0 4px 2px;
+      width: calc(100% - 2px);
+      height: calc(50% - 2px);
+    }
+
+    &__3 {
+      margin: 0 0 0 2px;
+      width: calc(100% - 2px);
+      height: calc(50% - 2px);
+    }
+  }
+
+  &__preview_more {
+    background: #E4B3B3;
+    border: 2px solid #FFFFFF;
+    width: 30px;
+    height: 30px;
+    border-radius: 999px;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    color: white;
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    padding: 6px;
+  }
+
+  &__modal_content {
+    width: 100%;
+
+    img,
+    video {
+      width: 100%;
+    }
+  }
+
+  &__modal {
+    overflow: scroll;
+  }
+}

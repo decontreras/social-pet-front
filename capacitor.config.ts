@@ -1,8 +1,8 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
-  appName: 'social-pet-front',
+  appId: 'com.politecnico.socialpet',
+  appName: 'social-pet',
   webDir: 'www',
   bundledWebRuntime: false
 };

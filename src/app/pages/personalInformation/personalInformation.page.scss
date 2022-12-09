@@ -1,0 +1,86 @@
+.personalInformation {
+    background: #EDF2F6;
+    min-height: 100%;
+    overflow-y: scroll;
+    position: relative;
+
+    &__input_box {
+        background: #FFFFFF;
+        border: 1px solid #ACACAC;
+        border-radius: 5px;
+        height: 40px;
+        margin: 10px auto 2px;
+        width: calc(100% - 40px);
+        ;
+        display: flex;
+
+        input,
+        select {
+            background: transparent;
+            border: none;
+            outline: none;
+            width: calc(100% - 40px);
+            margin: 10px auto;
+
+            ::placeholder {
+                font-family: 'Mulish';
+                font-style: normal;
+                font-weight: 600;
+                font-size: 12px;
+                line-height: 15px;
+                color: #ACACAC;
+            }
+        }
+
+        svg {
+            height: 20px;
+            margin: 10px;
+        }
+    }
+
+    &__label_input {
+        font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+        color: #515365;
+        letter-spacing: 1px;
+        font-size: .775rem;
+        font-weight: 700;
+        width: calc(100% - 40px);
+        margin: 10px auto 0;
+    }
+
+    &__title {
+        font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+        color: #515365;
+        letter-spacing: 1px;
+        font-size: 1rem;
+        font-weight: 700;
+        width: calc(100% - 40px);
+        margin: 10px auto 0;
+    }
+
+    &__footer_button {
+        background: linear-gradient(-135deg, #CE33FF, #4158d0);
+        font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+        text-align: center;
+        color: #FFFFFF;
+        padding: 5px 10px;
+        margin: 10px 20px;
+        border-radius: 30px;
+        width: 120px;
+    }
+
+    &__footer_button_disabled {
+        opacity: 0.5;
+    }
+
+    &__alert {
+        margin: 0px auto 8px;
+        width: calc(100% - 40px);
+        color: red;
+        font-size: .775rem;
+    }
+
+    &__alert_box {
+        border: 1px solid red !important;
+    }
+}

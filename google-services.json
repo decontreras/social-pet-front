@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "123207634137",
+    "project_id": "social-pet-ef572",
+    "storage_bucket": "social-pet-ef572.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:123207634137:android:74c5165633d8d1146e02c8",
+        "android_client_info": {
+          "package_name": "com.politecnico.socialpet"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "123207634137-pqm2fi8c6r42h5b7qi4qrmadfqsb86n8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyATLPb8lxk160rA8OmZ5i1DfCctFqTbnjc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "123207634137-pqm2fi8c6r42h5b7qi4qrmadfqsb86n8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

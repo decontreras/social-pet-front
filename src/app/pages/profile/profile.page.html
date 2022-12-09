@@ -1,0 +1,70 @@
+<div class="profile">
+  <svg *ngIf="!idOtherUser" routerLink="/tabs/edit" class="profile__edit" xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" width="38.932px"
+    height="38.932px" viewBox="0 0 38.932 38.932" style="enable-background:new 0 0 38.932 38.932;" xml:space="preserve">
+    <g>
+      <path
+        d="M29.054,19.871h-1.319c-0.228-0.736-0.522-1.441-0.881-2.109l0.938-0.938c1.09-1.09,1.09-2.859,0-3.951l-1.005-1.002   c-0.522-0.525-1.233-0.818-1.975-0.818l0,0c-0.742,0-1.451,0.293-1.978,0.818l-0.938,0.938c-0.668-0.357-1.373-0.654-2.109-0.881   v-1.32c0-1.543-1.25-2.793-2.793-2.793h-1.42c-1.543,0-2.793,1.25-2.793,2.793v1.32c-0.736,0.227-1.441,0.523-2.109,0.881   l-0.938-0.938c-1.092-1.092-2.861-1.092-3.951,0l-1.004,1.002c-1.09,1.09-1.09,2.859,0,3.949l0.938,0.938   c-0.354,0.67-0.651,1.375-0.879,2.111H3.521c-1.543,0-2.793,1.251-2.793,2.792v1.42c0,1.541,1.25,2.793,2.793,2.793h1.319   c0.228,0.735,0.523,1.44,0.879,2.108L4.78,29.923c-1.09,1.092-1.09,2.858,0,3.951l1.004,1.004c0.523,0.522,1.234,0.817,1.975,0.817   l0,0c0.74,0,1.451-0.295,1.976-0.817l0.938-0.938c0.668,0.355,1.373,0.652,2.109,0.879v1.32c0,1.543,1.25,2.793,2.793,2.793h1.42   c1.543,0,2.793-1.25,2.793-2.793v-1.32c0.736-0.227,1.441-0.522,2.109-0.879l0.939,0.938c0.521,0.522,1.232,0.817,1.975,0.817   c0.74,0,1.451-0.295,1.975-0.817l1.004-1.004c1.09-1.091,1.09-2.859-0.002-3.949l-0.938-0.938c0.357-0.67,0.654-1.375,0.881-2.11   h1.32c1.543,0,2.793-1.252,2.793-2.793v-1.42C31.847,21.122,30.597,19.871,29.054,19.871z M16.286,29.757   c-3.52,0-6.383-2.863-6.383-6.383c0-3.521,2.863-6.384,6.383-6.384c3.521,0,6.385,2.864,6.385,6.384   C22.671,26.894,19.808,29.757,16.286,29.757z M37.124,4.648h-0.508c-0.088-0.281-0.203-0.555-0.34-0.812l0.361-0.361   c0.42-0.422,0.42-1.102,0-1.523l-0.387-0.387c-0.203-0.203-0.479-0.315-0.764-0.315l0,0c-0.285,0-0.561,0.112-0.762,0.315   l-0.363,0.359c-0.256-0.137-0.525-0.25-0.812-0.338v-0.51C33.55,0.48,33.068,0,32.472,0h-0.547c-0.596,0-1.076,0.48-1.076,1.076   v0.51c-0.283,0.088-0.557,0.201-0.813,0.338l-0.36-0.359c-0.422-0.422-1.104-0.422-1.524,0l-0.386,0.384   c-0.422,0.422-0.422,1.104,0,1.525l0.361,0.361c-0.14,0.258-0.255,0.531-0.341,0.812h-0.51c-0.597,0-1.076,0.484-1.076,1.078v0.547   c0,0.596,0.479,1.078,1.076,1.078h0.51c0.086,0.283,0.201,0.557,0.341,0.814l-0.363,0.361c-0.42,0.42-0.42,1.102,0,1.522   l0.388,0.388c0.203,0.202,0.478,0.315,0.765,0.315l0,0c0.284,0,0.559-0.113,0.762-0.315l0.36-0.361   c0.259,0.139,0.529,0.252,0.814,0.34v0.508c0,0.596,0.479,1.078,1.075,1.078h0.547c0.597,0,1.078-0.482,1.078-1.078v-0.506   c0.283-0.088,0.558-0.201,0.812-0.34l0.363,0.361c0.203,0.202,0.477,0.315,0.762,0.315s0.559-0.113,0.762-0.315l0.387-0.388   c0.42-0.42,0.42-1.104,0-1.522l-0.359-0.361c0.139-0.258,0.252-0.531,0.34-0.814h0.51c0.596,0,1.076-0.482,1.076-1.078V5.726   C38.202,5.133,37.72,4.648,37.124,4.648z M32.2,8.463c-1.357,0-2.461-1.104-2.461-2.463c0-1.357,1.104-2.461,2.461-2.461   S34.663,4.643,34.663,6C34.663,7.359,33.558,8.463,32.2,8.463z" />
+    </g>
+  </svg>
+  <div class="profile__image">
+    <svg *ngIf="!userData.image" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+      version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 285.5 285.5"
+      style="enable-background:new 0 0 285.5 285.5;" xml:space="preserve">
+      <g id="XMLID_791_">
+        <path id="XMLID_792_"
+          d="M142.75,125.5c34.601,0,62.751-28.149,62.751-62.75S177.351,0,142.75,0S79.999,28.149,79.999,62.75   S108.149,125.5,142.75,125.5z M142.75,30c18.059,0,32.751,14.691,32.751,32.75S160.809,95.5,142.75,95.5   s-32.751-14.691-32.751-32.75S124.691,30,142.75,30z" />
+        <path id="XMLID_795_"
+          d="M142.75,155.5c-63.411,0-115,51.589-115,115c0,8.284,6.716,15,15,15h200c8.284,0,15-6.716,15-15   C257.75,207.089,206.161,155.5,142.75,155.5z M59.075,255.5c7.106-39.739,41.923-70,83.675-70s76.569,30.261,83.675,70H59.075z" />
+      </g>
+    </svg>
+    <img *ngIf="userData.image" [src]="userData.image" alt="">
+    <svg (click)="setOpen(true)" *ngIf="!idOtherUser" class="profile__edit_picture" xmlns="http://www.w3.org/2000/svg"
+      width="24px" height="24px" viewBox="0 0 24 24">
+      <path
+        d="M12 8c-2.168 0-4 1.832-4 4s1.832 4 4 4 4-1.832 4-4-1.832-4-4-4zm0 6c-1.065 0-2-.935-2-2s.935-2 2-2 2 .935 2 2-.935 2-2 2z" />
+      <path
+        d="M20 5h-2.586l-2.707-2.707A.996.996 0 0 0 14 2h-4a.996.996 0 0 0-.707.293L6.586 5H4c-1.103 0-2 .897-2 2v11c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2V7c0-1.103-.897-2-2-2zM4 18V7h3c.266 0 .52-.105.707-.293L10.414 4h3.172l2.707 2.707A.996.996 0 0 0 17 7h3l.002 11H4z" />
+    </svg>
+  </div>
+  <div class="profile__userName">{{userData.userName}} <span> ({{userData.typeAccount}})</span></div>
+  <div class="profile__fullName">{{userData.fullName}}</div>
+  <div class="profile__relation">
+    <button (click)="request()" class="profile__addFriend" *ngIf="idOtherUser && friend == 'none'">Vincular</button>
+    <button class="profile__friend" *ngIf="idOtherUser && friend == 'accepted'">Vinculados</button>
+    <button class="profile__friend" *ngIf="idOtherUser && friend == 'pending'">Vinculación pendiente</button>
+  </div>
+  <app-publish *ngIf="publish" (reloadHome)="listPublish(userToken.uid)"></app-publish>
+  <div *ngFor="let item of publishList">
+    <app-feed [data]="item"></app-feed>
+  </div>
+</div>
+<ion-modal [isOpen]="isModalOpen">
+  <ng-template>
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Cambio de perfil</ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="setOpen(false)">Cancelar</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <div class="profile__modal_content">
+      <img *ngIf="newProfile" [src]="newProfile" alt="">
+      <input #profile_new type="file" id="profile_new" hidden [accept]="allowedMimeType.toString()"
+        (change)="uploadPreview($event)" />
+      <div slot="center">
+        <ion-button #upload (click)="profile_new.click()">Buscar</ion-button>
+      </div>
+    </div>
+    <ion-footer>
+      <ion-toolbar>
+        <div class="profile__modal_content">
+          <div slot="center">
+            <ion-button [disabled]="!newProfile" (click)="edit()">Guardar</ion-button>
+          </div>
+        </div>
+      </ion-toolbar>
+    </ion-footer>
+  </ng-template>
+</ion-modal>

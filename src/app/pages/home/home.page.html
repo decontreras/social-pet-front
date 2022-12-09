@@ -1,0 +1,38 @@
+<div class="home">
+  <div class="home__search_box">
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px"
+      y="0px" viewBox="0 0 69.961 69.961" style="enable-background:new 0 0 69.961 69.961;" xml:space="preserve">
+      <g>
+        <path
+          d="M66.829,51.329L56.593,41.093c1.479-3.56,2.248-7.387,2.248-11.282c0-16.222-13.198-29.42-29.421-29.42   C13.198,0.391,0,13.589,0,29.811c0,16.223,13.198,29.421,29.42,29.421c4.318,0,8.518-0.932,12.37-2.724l9.931,9.932   c2.019,2.019,4.701,3.13,7.556,3.13s5.539-1.112,7.557-3.132c2.016-2.015,3.127-4.698,3.127-7.553   C69.96,56.032,68.849,53.348,66.829,51.329z M62.588,62.198c-0.914,0.915-2.113,1.372-3.312,1.372s-2.397-0.457-3.313-1.372   L42.798,49.031c-3.794,2.646-8.403,4.201-13.378,4.201C16.485,53.232,6,42.746,6,29.811s10.485-23.42,23.42-23.42   s23.421,10.485,23.421,23.42c0,4.57-1.314,8.832-3.578,12.438l13.325,13.325C64.418,57.403,64.418,60.369,62.588,62.198z" />
+        <path
+          d="M29.42,13.061c-9.235,0-16.749,7.514-16.749,16.75s7.514,16.75,16.749,16.75c9.236,0,16.75-7.514,16.75-16.75   S38.656,13.061,29.42,13.061z M29.42,40.561c-5.927,0-10.749-4.822-10.749-10.75s4.822-10.75,10.749-10.75   c5.928,0,10.75,4.822,10.75,10.75S35.348,40.561,29.42,40.561z" />
+      </g>
+    </svg>
+    <input [(ngModel)]="userS" (ngModelChange)="searchUser()" placeholder="Buscar cuenta" />
+  </div>
+  <div class="home__container">
+    <div class="home__item" *ngFor="let item of dataSearch" (click)="goToProfile(item.uid)">
+      <div class="home__item_profile">
+        <svg *ngIf="!item.image" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1"
+          x="0px" y="0px" viewBox="0 0 285.5 285.5" style="enable-background:new 0 0 285.5 285.5;" xml:space="preserve">
+          <g id="XMLID_791_">
+            <path id="XMLID_792_"
+              d="M142.75,125.5c34.601,0,62.751-28.149,62.751-62.75S177.351,0,142.75,0S79.999,28.149,79.999,62.75   S108.149,125.5,142.75,125.5z M142.75,30c18.059,0,32.751,14.691,32.751,32.75S160.809,95.5,142.75,95.5   s-32.751-14.691-32.751-32.75S124.691,30,142.75,30z" />
+            <path id="XMLID_795_"
+              d="M142.75,155.5c-63.411,0-115,51.589-115,115c0,8.284,6.716,15,15,15h200c8.284,0,15-6.716,15-15   C257.75,207.089,206.161,155.5,142.75,155.5z M59.075,255.5c7.106-39.739,41.923-70,83.675-70s76.569,30.261,83.675,70H59.075z" />
+          </g>
+        </svg>
+        <img *ngIf="item.image" [src]="item.image" alt="">
+      </div>
+      <div class="home__item_container">
+        <div class="home__item_info">{{item.userName}}</div>
+        <div class="home__item_name">{{item.fullName}}</div>
+      </div>
+    </div>
+  </div>
+  <app-publish (reloadHome)="listPublish()"></app-publish>
+  <div *ngFor="let item of publishList">
+    <app-feed [data]="item"></app-feed>
+  </div>
+</div>

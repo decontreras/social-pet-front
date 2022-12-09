@@ -1,0 +1,140 @@
+<div class="personalInformation">
+  <form [formGroup]="form">
+    <div class="personalInformation__title">Datos personales</div>
+    <div class="personalInformation__label_input">Nombre completo</div>
+    <div class="personalInformation__input_box"
+      [class.personalInformation__alert_box]="form.get('fullName').invalid && form.get('fullName').touched">
+      <input type="text" formControlName="fullName" />
+    </div>
+    <div *ngIf="form.get('fullName').invalid && form.get('fullName').touched" class="personalInformation__alert">
+      <div *ngIf="form.get('fullName').errors?.['required']">
+        El nombre es requerido
+      </div>
+      <div *ngIf="form.get('fullName').errors?.['minlength']">
+        El nombre debe contener minimo 4 caracteres
+      </div>
+    </div>
+    <div class="personalInformation__label_input">Fecha de nacimiento</div>
+    <div class="personalInformation__input_box"
+      [class.personalInformation__alert_box]="form.get('dateOfBirth').invalid && form.get('dateOfBirth').touched">
+      <input formControlName="dateOfBirth" type="date" id="datefield" />
+    </div>
+    <div *ngIf="form.get('dateOfBirth').invalid && form.get('dateOfBirth').touched" class="personalInformation__alert">
+      <div *ngIf="form.get('dateOfBirth').errors?.['required']">
+        La fecha de nacimiento es requerida
+      </div>
+    </div>
+    <div class="personalInformation__label_input">Email</div>
+    <div class="personalInformation__input_box"
+      [class.personalInformation__alert_box]="form.get('email').invalid && form.get('email').touched">
+      <input formControlName="email" />
+    </div>
+    <div *ngIf="form.get('email').invalid && form.get('email').touched" class="personalInformation__alert">
+      <div *ngIf="form.get('email').errors?.['required']">
+        El correo es requerido
+      </div>
+      <div *ngIf="form.get('email').errors?.['email']">
+        Debe ser un correo válido
+      </div>
+    </div>
+    <div class="personalInformation__label_input">Estado civil</div>
+    <div class="personalInformation__input_box"
+      [class.personalInformation__alert_box]="form.get('maritalStatus').invalid && form.get('maritalStatus').touched">
+      <select formControlName="maritalStatus">
+        <option value="" selected disabled>Seleccione una opcion...</option>
+        <option value="soltero">Soltero</option>
+        <option value="casado">casado</option>
+        <option value="divorciado">divorciado</option>
+        <option value="viudo">viudo</option>
+        <option value="union libre">union libre</option>
+      </select>
+    </div>
+    <div *ngIf="form.get('maritalStatus').invalid && form.get('maritalStatus').touched"
+      class="personalInformation__alert">
+      <div *ngIf="form.get('maritalStatus').errors?.['required']">
+        El estado civil es requerido
+      </div>
+    </div>
+    <div class="personalInformation__label_input">Celular</div>
+    <div class="personalInformation__input_box"
+      [class.personalInformation__alert_box]="form.get('phone').invalid && form.get('phone').touched">
+      <input type="number" formControlName="phone" />
+    </div>
+    <div *ngIf="form.get('phone').invalid && form.get('phone').touched" class="personalInformation__alert">
+      <div *ngIf="form.get('phone').errors?.['required']">
+        El celular es requerido
+      </div>
+      <div *ngIf="form.get('phone').errors?.['min'] || form.get('phone').errors?.['max']">
+        El celular debe contener 10 dígitos
+      </div>
+    </div>
+    <div class="personalInformation__label_input">Teléfono fijo</div>
+    <div class="personalInformation__input_box"
+      [class.personalInformation__alert_box]="form.get('landline').invalid && form.get('landline').touched">
+      <input type="number" formControlName="landline" />
+    </div>
+    <div *ngIf="form.get('landline').invalid && form.get('landline').touched" class="personalInformation__alert">
+      <div *ngIf="form.get('landline').errors?.['required']">
+        El teléfono fijo es requerido
+      </div>
+      <div *ngIf="form.get('landline').errors?.['min'] || form.get('landline').errors?.['max']">
+        El teléfono fijo debe contener 7 dígitos
+      </div>
+    </div>
+    <div class="personalInformation__label_input">Dirección</div>
+    <div class="personalInformation__input_box"
+      [class.personalInformation__alert_box]="form.get('address').invalid && form.get('address').touched">
+      <input formControlName="address" />
+    </div>
+    <div *ngIf="form.get('address').invalid && form.get('address').touched" class="personalInformation__alert">
+      <div *ngIf="form.get('address').errors?.['required']">
+        La dirección es requerida
+      </div>
+      <div *ngIf="form.get('address').errors?.['minlength']">
+        La dirección debe contener minimo 4 caracteres
+      </div>
+    </div>
+    <div class="personalInformation__label_input">Profesión</div>
+    <div class="personalInformation__input_box"
+      [class.personalInformation__alert_box]="form.get('profession').invalid && form.get('profession').touched">
+      <input formControlName="profession" />
+    </div>
+    <div *ngIf="form.get('profession').invalid && form.get('profession').touched" class="personalInformation__alert">
+      <div *ngIf="form.get('profession').errors?.['required']">
+        La profesión es requerida
+      </div>
+      <div *ngIf="form.get('profession').errors?.['minlength']">
+        La profesión debe contener minimo 4 caracteres
+      </div>
+    </div>
+    <div class="personalInformation__label_input">Empresa donde trabaja</div>
+    <div class="personalInformation__input_box"
+      [class.personalInformation__alert_box]="form.get('business').invalid && form.get('business').touched">
+      <input formControlName="business" />
+    </div>
+    <div *ngIf="form.get('business').invalid && form.get('business').touched" class="personalInformation__alert">
+      <div *ngIf="form.get('business').errors?.['required']">
+        La empresa es requerida
+      </div>
+      <div *ngIf="form.get('business').errors?.['minlength']">
+        La empresa debe contener minimo 4 caracteres
+      </div>
+    </div>
+    <div class="personalInformation__label_input">Tipo de cuenta</div>
+    <div class="personalInformation__input_box"
+      [class.personalInformation__alert_box]="form.get('typeAccount').invalid && form.get('typeAccount').touched">
+      <select formControlName="typeAccount">
+        <option value="" selected disabled>Seleccione una opcion...</option>
+        <option value="fundación">fundación</option>
+        <option value="adoptante">adoptante</option>
+      </select>
+    </div>
+    <div *ngIf="form.get('typeAccount').invalid && form.get('typeAccount').touched" class="personalInformation__alert">
+      <div *ngIf="form.get('typeAccount').errors?.['required']">
+        El tipo de cuenta es requerido
+      </div>
+    </div>
+    <button class="personalInformation__footer_button" [class.personalInformation__footer_button_disabled]="!form.valid"
+      (click)="edit()" [disabled]="!form.valid">Guardar</button>
+  </form>
+</div>

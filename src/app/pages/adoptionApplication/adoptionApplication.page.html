@@ -1,0 +1,98 @@
+<div class="adoptionApplication">
+  <div class="adoptionApplication__container">
+    <div class="adoptionApplication__title">
+      <div class="adoptionApplication__title_text">Solicitudes de adopción</div>
+    </div>
+    <div *ngFor="let publish of adoptionApplicationList">
+      <div class="adoptionApplication__item" *ngFor="let item of publish.request">
+        <div class="adoptionApplication__item_profile">
+          <svg *ngIf="!item.user.image" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+            version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 285.5 285.5"
+            style="enable-background:new 0 0 285.5 285.5;" xml:space="preserve">
+            <g id="XMLID_791_">
+              <path id="XMLID_792_"
+                d="M142.75,125.5c34.601,0,62.751-28.149,62.751-62.75S177.351,0,142.75,0S79.999,28.149,79.999,62.75   S108.149,125.5,142.75,125.5z M142.75,30c18.059,0,32.751,14.691,32.751,32.75S160.809,95.5,142.75,95.5   s-32.751-14.691-32.751-32.75S124.691,30,142.75,30z" />
+              <path id="XMLID_795_"
+                d="M142.75,155.5c-63.411,0-115,51.589-115,115c0,8.284,6.716,15,15,15h200c8.284,0,15-6.716,15-15   C257.75,207.089,206.161,155.5,142.75,155.5z M59.075,255.5c7.106-39.739,41.923-70,83.675-70s76.569,30.261,83.675,70H59.075z" />
+            </g>
+          </svg>
+          <img *ngIf="item.user.image" [src]="item.user.image" alt="">
+        </div>
+        <span class="adoptionApplication__item_info"><b>{{item.user.userName}}</b><br>Solicito ser candidato de
+          adopción
+          de tu publicación.</span>
+        <button (click)="setOpen(true, item.user)" class="adoptionApplication__item_button">Ver</button>
+      </div>
+    </div>
+  </div>
+</div>
+<ion-modal [isOpen]="isModalOpen">
+  <ng-template>
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Información adoptante</ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="setOpen(false, [])">Cerrar</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <div class="adoptionApplication__modal">
+        <form [formGroup]="form">
+          <div class="adoptionApplication__title">Datos personales</div>
+          <div class="adoptionApplication__label_input">Nombre completo</div>
+          <div class="adoptionApplication__input_box">
+            <input disabled type="text" formControlName="fullName" />
+          </div>
+          <div class="adoptionApplication__label_input">Fecha de nacimiento</div>
+          <div class="adoptionApplication__input_box">
+            <input disabled formControlName="dateOfBirth" type="date" id="datefield" />
+          </div>
+          <div class="adoptionApplication__label_input">Email</div>
+          <div class="adoptionApplication__input_box">
+            <input disabled formControlName="email" />
+          </div>
+          <div class="adoptionApplication__label_input">Estado civil</div>
+          <div class="adoptionApplication__input_box">
+            <select disabled formControlName="maritalStatus">
+              <option value="" selected disabled>Seleccione una opcion...</option>
+              <option value="soltero">Soltero</option>
+              <option value="casado">casado</option>
+              <option value="divorciado">divorciado</option>
+              <option value="viudo">viudo</option>
+              <option value="union libre">union libre</option>
+            </select>
+          </div>
+          <div class="adoptionApplication__label_input">Celular</div>
+          <div class="adoptionApplication__input_box">
+            <input disabled type="number" formControlName="phone" />
+          </div>
+          <div class="adoptionApplication__label_input">Teléfono fijo</div>
+          <div class="adoptionApplication__input_box">
+            <input disabled type="number" formControlName="landline" />
+          </div>
+          <div class="adoptionApplication__label_input">Dirección</div>
+          <div class="adoptionApplication__input_box">
+            <input disabled formControlName="address" />
+          </div>
+          <div class="adoptionApplication__label_input">Profesión</div>
+          <div class="adoptionApplication__input_box">
+            <input disabled formControlName="profession" />
+          </div>
+          <div class="adoptionApplication__label_input">Empresa donde trabaja</div>
+          <div class="adoptionApplication__input_box">
+            <input disabled formControlName="business" />
+          </div>
+          <div class="adoptionApplication__label_input">Tipo de cuenta</div>
+          <div class="adoptionApplication__input_box">
+            <select disabled formControlName="typeAccount">
+              <option value="" selected disabled>Seleccione una opcion...</option>
+              <option value="fundación">fundación</option>
+              <option value="adoptante">adoptante</option>
+            </select>
+          </div>
+        </form>
+      </div>
+    </ion-content>
+  </ng-template>
+</ion-modal>

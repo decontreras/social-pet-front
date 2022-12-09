@@ -1,0 +1,193 @@
+<div class="feed">
+  <div class="feed__header">
+    <div class="feed__header_profile">
+      <svg *ngIf="!data.userId.image" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+        version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 285.5 285.5"
+        style="enable-background:new 0 0 285.5 285.5;" xml:space="preserve">
+        <g id="XMLID_791_">
+          <path id="XMLID_792_"
+            d="M142.75,125.5c34.601,0,62.751-28.149,62.751-62.75S177.351,0,142.75,0S79.999,28.149,79.999,62.75   S108.149,125.5,142.75,125.5z M142.75,30c18.059,0,32.751,14.691,32.751,32.75S160.809,95.5,142.75,95.5   s-32.751-14.691-32.751-32.75S124.691,30,142.75,30z" />
+          <path id="XMLID_795_"
+            d="M142.75,155.5c-63.411,0-115,51.589-115,115c0,8.284,6.716,15,15,15h200c8.284,0,15-6.716,15-15   C257.75,207.089,206.161,155.5,142.75,155.5z M59.075,255.5c7.106-39.739,41.923-70,83.675-70s76.569,30.261,83.675,70H59.075z" />
+        </g>
+      </svg>
+      <img *ngIf="data.userId.image" [src]="data.userId.image" alt="">
+    </div>
+    <span class="feed__header_info"><b>{{data.userId.userName}}</b> compartio un caso de <a>{{data.type}}</a><br>
+      <p>{{data.createdAt | date :'short'}}</p>
+    </span>
+  </div>
+  <div class="feed__text" *ngIf="data.text">
+    {{data.text}}
+  </div>
+  <div class="feed__preview" *ngIf="multimediaLength" (click)="setOpen(true)">
+    <div class="feed__preview_multimedia" *ngIf="multimediaLength == 1; else multiplePreview">
+      <div class="feed__preview_container" *ngIf="data.multimedia[0].type.includes('image'); else videoTypeOne">
+        <img [src]="data.multimedia[0].base64" alt="">
+      </div>
+      <ng-template #videoTypeOne>
+        <div class="feed__preview_container">
+          <video>
+            <source [src]="data.multimedia[0].base64" [type]="data.multimedia[0].type">
+          </video>
+        </div>
+      </ng-template>
+    </div>
+    <ng-template #multiplePreview>
+      <div class="feed__preview_multimedia_{{multimediaLength}}__{{1}} feed__preview_multimedia_{{multimediaLength}}">
+        <div class="feed__preview_container" *ngIf="data.multimedia[0].type.includes('image'); else videoTypeTwo">
+          <img [src]="data.multimedia[0].base64" alt="">
+        </div>
+        <ng-template #videoTypeTwo>
+          <div class="feed__preview_container">
+            <video>
+              <source [src]="data.multimedia[0].base64" [type]="data.multimedia[0].type">
+            </video>
+          </div>
+        </ng-template>
+      </div>
+      <div class="feed__preview_multimedia_{{multimediaLength}}__container">
+        <div *ngFor="let item of data.multimedia.slice(1, 3); let i = index"
+          class="feed__preview_multimedia_{{multimediaLength}}__{{i + 2}} feed__preview_multimedia_{{multimediaLength}}">
+          <div class="feed__preview_container"
+            *ngIf="data.multimedia[i + 1].type.includes('image'); else videoTypeThree">
+            <img [src]="data.multimedia[i + 1].base64" alt="">
+          </div>
+          <ng-template #videoTypeThree>
+            <div class="feed__preview_container">
+              <video>
+                <source [src]="data.multimedia[i + 1].base64" [type]="data.multimedia[i + 1].type">
+              </video>
+            </div>
+          </ng-template>
+        </div>
+      </div>
+    </ng-template>
+    <div class="feed__preview_more" *ngIf="data.multimedia.length > 3">
+      +{{data.multimedia.length - 3}}</div>
+  </div>
+  <div class="feed__reaction">
+    <div class="feed__reaction_item">
+      <svg *ngIf="!hasLike" (click)="addLike()" class="feed__reaction_icon" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px"
+        viewBox="0 0 460.958 460.958" style="enable-background:new 0 0 460.958 460.958;" xml:space="preserve">
+        <g>
+          <g>
+            <path
+              d="M337.843,23.957c-45.74,0-86.155,25.047-107.364,62.788c-21.209-37.741-61.623-62.788-107.364-62.788    C55.229,23.957,0,79.186,0,147.072c0,54.355,37.736,119.46,112.16,193.506c54.115,53.84,107.363,92.031,109.603,93.631    c2.607,1.861,5.662,2.792,8.716,2.792s6.109-0.93,8.715-2.792c2.241-1.6,55.489-39.791,109.604-93.631    c74.424-74.046,112.16-139.151,112.16-193.506C460.958,79.186,405.729,23.957,337.843,23.957z M327.919,319.032    c-39.843,39.681-80.171,71.279-97.44,84.307c-17.269-13.029-57.597-44.626-97.44-84.307C65.63,251.899,30,192.436,30,147.072    c0-51.344,41.771-93.115,93.115-93.115c47.279,0,87.03,35.369,92.464,82.271c0.876,7.565,7.284,13.273,14.9,13.273    c7.616,0,14.023-5.708,14.9-13.273c5.435-46.902,45.185-82.271,92.464-82.271c51.344,0,93.115,41.771,93.115,93.115    C430.958,192.436,395.328,251.899,327.919,319.032z" />
+          </g>
+        </g>
+      </svg>
+      <svg *ngIf="hasLike" (click)="addLike()" class="feed__reaction_icon" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 51.997 51.997"
+        style="enable-background:new 0 0 51.997 51.997;" xml:space="preserve">
+        <path
+          d="M51.911,16.242C51.152,7.888,45.239,1.827,37.839,1.827c-4.93,0-9.444,2.653-11.984,6.905  c-2.517-4.307-6.846-6.906-11.697-6.906c-7.399,0-13.313,6.061-14.071,14.415c-0.06,0.369-0.306,2.311,0.442,5.478  c1.078,4.568,3.568,8.723,7.199,12.013l18.115,16.439l18.426-16.438c3.631-3.291,6.121-7.445,7.199-12.014  C52.216,18.553,51.97,16.611,51.911,16.242z" />
+      </svg>
+      <p>{{data.likes.length}}</p>
+    </div>
+    <div class="feed__reaction_item">
+      <svg (click)="setOpen2(true)" class="feed__reaction_icon" xmlns="http://www.w3.org/2000/svg" width="28px"
+        height="28px" viewBox="0 -2 28 28">
+        <path
+          d="m14 2c-.038 0-.083-.001-.128-.001-2.098 0-4.102.399-5.942 1.124l.11-.038c-1.74.644-3.217 1.645-4.4 2.922l-.007.007c-.99 1.036-1.608 2.436-1.633 3.98v.005c.013 1.258.432 2.415 1.131 3.351l-.011-.015c.835 1.131 1.885 2.053 3.096 2.719l.049.025 1.36.782-.426 1.498c-.272 1.021-.646 1.915-1.122 2.741l.029-.054c1.651-.691 3.071-1.59 4.313-2.686l-.017.014.672-.594.89.094c.607.077 1.312.122 2.028.125h.004c.038 0 .083.001.128.001 2.098 0 4.102-.399 5.942-1.124l-.11.038c1.74-.644 3.217-1.645 4.4-2.922l.007-.007c1.009-1.025 1.632-2.432 1.632-3.984s-.623-2.96-1.633-3.985l.001.001c-1.19-1.284-2.666-2.286-4.329-2.904l-.078-.025c-1.73-.687-3.735-1.086-5.833-1.086-.044 0-.088 0-.132.001h.007zm14 8c-.012 1.924-.72 3.681-1.884 5.033l.009-.01c-1.349 1.592-3.059 2.837-5.008 3.611l-.086.03c-2.023.846-4.374 1.337-6.839 1.337-.068 0-.135 0-.202-.001h.01c-.8-.002-1.588-.047-2.363-.134l.097.009c-1.981 1.759-4.399 3.072-7.069 3.756l-.118.026c-.503.145-1.107.266-1.726.339l-.055.005h-.08c-.163 0-.311-.062-.422-.164-.123-.111-.212-.258-.249-.424l-.001-.005v-.016c-.017-.029-.027-.064-.027-.102 0-.033.008-.063.021-.091l-.001.001c.02-.047.031-.101.031-.159 0-.001 0-.001 0-.002q-.008-.031.07-.149l.094-.141.11-.133.125-.141q.11-.125.484-.539l.539-.594q.164-.18.484-.617c.174-.231.343-.493.491-.767l.017-.033q.187-.359.422-.922c.137-.317.276-.712.39-1.117l.017-.07c-1.558-.861-2.852-2.018-3.844-3.405l-.024-.035c-.878-1.216-1.407-2.735-1.414-4.377v-.002c.012-1.924.72-3.681 1.884-5.033l-.009.01c1.349-1.592 3.059-2.837 5.008-3.611l.086-.03c2.023-.846 4.374-1.337 6.839-1.337.068 0 .135 0 .202.001h-.01c.057-.001.125-.001.192-.001 2.465 0 4.816.491 6.959 1.381l-.12-.044c2.034.804 3.745 2.048 5.078 3.622l.015.018c1.155 1.342 1.863 3.099 1.875 5.021v.003z" />
+      </svg>
+      <p>{{data.comments.length}}</p>
+    </div>
+    <div class="feed__relation" *ngIf="data.type == 'busqueda de hogar' && data.userId.uid != userToken.uid">
+      <button (click)="addRequest()" class="feed__postular" *ngIf="!postulado">Postutar</button>
+      <button class="feed__postulado" *ngIf="postulado">Postulado</button>
+    </div>
+  </div>
+</div>
+<ion-modal [isOpen]="isModalOpen">
+  <ng-template>
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Contenido multimedia</ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="setOpen(false)">Cerrar</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <div class="feed__modal">
+        <div class="feed__modal_content" *ngFor="let item of data.multimedia">
+          <img *ngIf="item.type.includes('image'); else videoTypeThree" [src]="item.base64" alt="">
+          <ng-template #videoTypeThree>
+            <video controls>
+              <source [src]="item.base64" [type]="item.type">
+            </video>
+          </ng-template>
+        </div>
+      </div>
+    </ion-content>
+  </ng-template>
+</ion-modal>
+<ion-modal [isOpen]="isModalOpen2">
+  <ng-template>
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Comentarios</ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="setOpen2(false)">Cerrar</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <div class="feed__modal">
+        <div class="feed__container">
+          <div class="feed__item" *ngFor="let item of data.comments">
+            <div class="feed__item_profile">
+              <svg *ngIf="!item.user.image" xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px"
+                viewBox="0 0 285.5 285.5" style="enable-background:new 0 0 285.5 285.5;" xml:space="preserve">
+                <g id="XMLID_791_">
+                  <path id="XMLID_792_"
+                    d="M142.75,125.5c34.601,0,62.751-28.149,62.751-62.75S177.351,0,142.75,0S79.999,28.149,79.999,62.75   S108.149,125.5,142.75,125.5z M142.75,30c18.059,0,32.751,14.691,32.751,32.75S160.809,95.5,142.75,95.5   s-32.751-14.691-32.751-32.75S124.691,30,142.75,30z" />
+                  <path id="XMLID_795_"
+                    d="M142.75,155.5c-63.411,0-115,51.589-115,115c0,8.284,6.716,15,15,15h200c8.284,0,15-6.716,15-15   C257.75,207.089,206.161,155.5,142.75,155.5z M59.075,255.5c7.106-39.739,41.923-70,83.675-70s76.569,30.261,83.675,70H59.075z" />
+                </g>
+              </svg>
+              <img *ngIf="item.user.image" [src]="item.user.image" alt="">
+            </div>
+            <div class="feed__item_container">
+              <div class="feed__item_info">{{item.user.userName}}</div>
+              <div class="feed__item_message">
+                <div>{{item.text}}</div>
+              </div>
+              <div class="feed__item_date">{{ item.date | date :'short' }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ion-content>
+    <ion-footer>
+      <div class="feed__box">
+        <div class="feed__header_profile">
+          <svg *ngIf="!userData.image" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+            version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 285.5 285.5"
+            style="enable-background:new 0 0 285.5 285.5;" xml:space="preserve">
+            <g id="XMLID_791_">
+              <path id="XMLID_792_"
+                d="M142.75,125.5c34.601,0,62.751-28.149,62.751-62.75S177.351,0,142.75,0S79.999,28.149,79.999,62.75   S108.149,125.5,142.75,125.5z M142.75,30c18.059,0,32.751,14.691,32.751,32.75S160.809,95.5,142.75,95.5   s-32.751-14.691-32.751-32.75S124.691,30,142.75,30z" />
+              <path id="XMLID_795_"
+                d="M142.75,155.5c-63.411,0-115,51.589-115,115c0,8.284,6.716,15,15,15h200c8.284,0,15-6.716,15-15   C257.75,207.089,206.161,155.5,142.75,155.5z M59.075,255.5c7.106-39.739,41.923-70,83.675-70s76.569,30.261,83.675,70H59.075z" />
+            </g>
+          </svg>
+          <img *ngIf="userData.image" [src]="userData.image" alt="">
+        </div>
+        <div class="feed__box_comment">
+          <textarea class="feed__input_comment" [(ngModel)]="textComment"></textarea>
+        </div>
+        <button class="feed__submit" (click)="addComment()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="22" y1="2" x2="11" y2="13" />
+            <polygon points="22 2 15 22 11 13 2 9 22 2" />
+          </svg>
+        </button>
+      </div>
+    </ion-footer>
+  </ng-template>
+</ion-modal>

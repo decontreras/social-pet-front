@@ -1,0 +1,21 @@
+<div class="login__container">
+  <div class="login__card">
+    <div class="login__title">Social Pet</div>
+    <form [formGroup]="form">
+      <div class="login__input_container">
+        <img src="/assets/icon/email.svg" alt="" class="login__icon">
+        <input formControlName="email" class="login__input" placeholder="Correo">
+      </div>
+      <div class="login__input_container">
+        <img src="/assets/icon/password.svg" alt="" class="login__icon">
+        <input formControlName="password" type="password" class="login__input" placeholder="Contraseña">
+      </div>
+      <button (click)="login()" class="login__button">Entrar</button>
+    </form>
+    <div class="login__text_aux"></div>
+    <div class="login__register" routerLink="/auth/register">
+      <div class="login__text_aux">Registrarte</div>
+      <img src="/assets/icon/next.svg" alt="" class="login__icon">
+    </div>
+  </div>
+</div>
